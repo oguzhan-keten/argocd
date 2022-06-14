@@ -18,18 +18,9 @@ pipeline {
           }
         }
 
-        stage("Deploy Test") {
+        stage("Deploy Live Local") {
             steps {
                 script {
-                    stagelibrary.TestDeploy("argocd", "ArgoCd", "default")
-                }
-            }
-        }
-
-        stage("Deploy Live") {
-            steps {
-                script {
-                    input "Deploy to prod?"
                     stagelibrary.Deploy("argocd", "ArgoCd", "default")
                 }
             }
