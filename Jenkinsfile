@@ -18,12 +18,6 @@ pipeline {
           }
         }
 
-        stage("Deploy Live Local") {
-            steps {
-                script {
-                    stagelibrary.Deploy("argocd", "ArgoCd", "default")
-                }
-            }
-        }
+       
     }
 }
