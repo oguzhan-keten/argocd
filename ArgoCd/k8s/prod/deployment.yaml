@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ArgoCd
+  labels:
+    app: ArgoCd
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 10%
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: ArgoCd
+  template:
+    metadata:
+      labels:
+        app: ArgoCd
+    spec:
+      containers:
+        - name: ArgoCd
+          image: ${REGISTRY}/${APP}:${BUILD_ID}
+          ports:
+            - containerPort: 5005
+          envFrom:
+          - configMapRef:
+              name: ArgoCd-env-config
+          resources:
+            requests:
+              memory: 1024Mi
+              cpu: 250m
+      terminationGracePeriodSeconds: 30
+      imagePullSecrets:
+        - name: dockerhub
