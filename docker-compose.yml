@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  argocd:
+    image: ${DOCKER_REGISTRY-}argocd
+    build:
+      context: .
+      dockerfile: ArgoCd/Dockerfile
