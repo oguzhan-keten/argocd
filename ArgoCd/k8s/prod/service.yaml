@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ArgoCd-svc
+  name: argocd-svc
   labels:
-    app: ArgoCd
+    app: argocd
 spec:
   ports:
     - port: 80
       targetPort: 5005
   selector:
-    app: ArgoCd
+    app: argocd
   type: ClusterIP

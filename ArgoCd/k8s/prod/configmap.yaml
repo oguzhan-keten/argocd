@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ArgoCd-env-config
+  name: argocd-env-config
 data:
   ASPNETCORE_ENVIRONMENT: "Production"
   ASPNETCORE_URLS: http://+:5005
-  APP_NAME: ArgoCd 
+  APP_NAME: argocd 
   TZ: "Europe/Istanbul"

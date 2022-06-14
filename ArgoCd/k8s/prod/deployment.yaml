@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ArgoCd
+  name: argocd
   labels:
-    app: ArgoCd
+    app: argocd
 spec:
   replicas: 1
   strategy:
@@ -12,20 +12,20 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: ArgoCd
+      app: argocd
   template:
     metadata:
       labels:
-        app: ArgoCd
+        app: argocd
     spec:
       containers:
-        - name: ArgoCd
+        - name: argocd
           image: ${REGISTRY}/${APP}:${BUILD_ID}
           ports:
             - containerPort: 5005
           envFrom:
           - configMapRef:
-              name: ArgoCd-env-config
+              name: argocd-env-config
           resources:
             requests:
               memory: 1024Mi
