@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: argocd
-          image: ${REGISTRY}/${APP}:${BUILD_ID}
+          image: nilveraltd/argocd:1
           ports:
             - containerPort: 5005
           envFrom:
