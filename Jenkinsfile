@@ -13,7 +13,7 @@ pipeline {
         stage("Build & Push") {
             steps {
               script {
-                  stagelibrary.Build("argocd", "ArgoCd", BUILD_ID)
+                  stagelibrary.Build("ArgoCd", "ArgoCd", BUILD_ID)
               }
           }
         }
