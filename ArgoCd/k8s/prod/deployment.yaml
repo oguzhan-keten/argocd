@@ -32,4 +32,4 @@ spec:
               cpu: 250m
       terminationGracePeriodSeconds: 30
       imagePullSecrets:
-        - name: dockerhub
+        - name: secret-basic-auth
